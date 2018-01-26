@@ -32,7 +32,7 @@ var return_event_list = function (current , parent) {
     $(".dept").slideDown(200);
     $(".nav-top").slideDown(100);
     parent["0"].style.zIndex = 1;
-    parent["0"].style.backgroundColor = "none";
+    parent["0"].style.backgroundColor = "inherit";
     $(parent["0"]).removeClass(' animate');
     $(parent["0"]).addClass(' de-animate');
     setTimeout($(parent["0"]).removeClass(' de-animate'),300)
