@@ -68,11 +68,31 @@ body{
 .event{
     text-align: center;
 }
+.event.animate {
+    animation: zoom;
+    animation-iteration-count: 1;
+    animation-duration: 0.2s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+
+}
+.event.de-animate{
+    animation: de-zoom;
+    animation-iteration-count: 1;
+    animation-duration: 0.2s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
 .event:after{
     content: "";
 }
 .event .event_name{
     padding: 1em;
+}
+/*Fade*/
+.fade{
+    animation: fade 0.2s 1;
+
 }
 /*Ripple*/
 .ripple {
@@ -190,5 +210,29 @@ body{
 @keyframes animatetop {
     from {top: -300px; opacity: 0}
     to {top: 0; opacity: 1}
+}
+@keyframes zoom {
+    from{
+        transform: scale(1);
+    }
+    to{
+        transform: scale(13);
+    }
+}
+@keyframes de-zoom {
+    from{
+        transform: scale(13);
+    }
+    to{
+        transform: scale(1);
+    }
+}
+@keyframes fade {
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
 }
 /*End Model*/

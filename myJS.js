@@ -18,33 +18,55 @@ window.onload = function() {
 };
 
 //Expansion of vertical event
+$(".event_name").click(function () {
+    this.style.opacity = 0;
+    var parent_class = $(this).parent();
+    $(".dept").slideUp(200 , model_fun(this , parent_class ));
+    $(".nav-top").slideUp(100);
+    parent_class["0"].style.zIndex = 999;
+    parent_class["0"].style.backgroundColor = "white";
+    $(parent_class["0"]).addClass(' animate');
+    console.log(parent_class);
+});
+var return_event_list = function (current , parent) {
+    $(".dept").slideDown(200);
+    $(".nav-top").slideDown(100);
+    parent["0"].style.zIndex = 1;
+    parent["0"].style.backgroundColor = "none";
+    $(parent["0"]).removeClass(' animate');
+    $(parent["0"]).addClass(' de-animate');
+    setTimeout($(parent["0"]).removeClass(' de-animate'),300)
+    current.style.opacity = 1;
+
+
+};
 
 // Model
+var model_fun = function (current , parent) {
 // Get the modal
-var modal = document.getElementById('rapid_model');
+    var modal = document.getElementById('model');
 
 // Get the button that opens the modal
-var btn = document.getElementById("rapid");
 
 // Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+    var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks on the button, open the modal
-btn.onclick = function() {
-    modal.style.display = "block";
-};
+        modal.style.display = "block";
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-    modal.style.display = "none";
-};
+    span.onclick = function () {
+        modal.style.display = "none";
+        return_event_list(current , parent);
+    };
 
 // When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-};
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    };
+}
 //End Model
 
 // Some random colors
