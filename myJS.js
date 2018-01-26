@@ -20,8 +20,13 @@ window.onload = function() {
 //Expansion of vertical event
 $(".event_name").click(function () {
     this.style.opacity = 0;
+    var current = this;
     var parent_class = $(this).parent();
-    $(".dept").slideUp(200 , model_fun(this , parent_class ));
+    $(".dept").slideUp(300 );
+    // setTimeout( model_fun(this , parent_class ) , 300);
+    setTimeout( function () {
+        model_fun(current , parent_class );
+        } , 500);
     $(".nav-top").slideUp(100);
     parent_class["0"].style.zIndex = 999;
     parent_class["0"].style.backgroundColor = "white";
@@ -29,14 +34,15 @@ $(".event_name").click(function () {
     console.log(parent_class);
 });
 var return_event_list = function (current , parent) {
-    $(".dept").slideDown(200);
-    $(".nav-top").slideDown(100);
+    $(".dept").slideDown(300);
+    $(".nav-top").slideDown(200);
     parent["0"].style.zIndex = 1;
     parent["0"].style.backgroundColor = "inherit";
     $(parent["0"]).removeClass(' animate');
     $(parent["0"]).addClass(' de-animate');
     setTimeout($(parent["0"]).removeClass(' de-animate'),300)
     current.style.opacity = 1;
+    console.log(current)
 
 
 };
