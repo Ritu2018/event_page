@@ -8,20 +8,18 @@ body{
     padding: 0;
 }
 .nav-top{
-    width: 100vw;
-    height: 10vh;
-    background-color: gray;
-    position: fixed;
-    z-index: 100;
+    z-index: 10;
+    position: absolute;
 }
-.nav-top{
-    box-shadow: 0 0 8px 0px #473131;
-}
+
 .nav-top .back{
     position: relative;
     display: inline-block;
     padding: 1.3em;
 
+}
+.back-img{
+    transform: scale(1.1);
 }
 .back img{
     width: 6vw;
@@ -32,16 +30,16 @@ body{
 .dept{
     width: 100vw;
     contain: content;
-    padding-top: 10vh;
     min-width: 347px;
-    z-index: 999;
+    z-index: 5;
     position: absolute;
 }
 .dept-details{
     position: absolute;
     width: 90vw;
-    top: 37%;
+    top: 10%;
     padding: 1em;
+    z-index: 99;
 }
 .dept-details .dept_logo{
     position: relative;
